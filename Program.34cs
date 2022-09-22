@@ -1,0 +1,44 @@
+﻿int[] CreatArray(int size, int minValue,int maxValue)
+{
+    int [] newArray=new int[size];
+    for(int i= 0;i < size; i++)
+      newArray[i]= new Random().Next(minValue, maxValue +1);
+    return newArray;
+}
+void ShowArray(int[] array)
+{
+    for(int i =0; i < array.Length;i++ )
+    Console.Write(array[i] + " ");
+    Console.WriteLine();
+}
+
+
+
+
+
+// задайте массив,заполненный случайными положит. трехзначными числами. Напишите программу, кот.покажет кол-во четных чисел в массиве.
+int PositiveOfnumber(int[] array)
+{
+    int counter=0;
+    for(int i=0; i<array.Length; i++)
+    {
+        if (array[i] % 2 == 0)
+        {
+            counter +=1;
+        }
+    }
+
+return counter;
+}    
+
+Console.Write("ВВедите размер желаемого массива: ");
+int size = Convert.ToInt32(Console.ReadLine());
+int minValue = 100;
+int maxValue = 999;
+int [] array = CreatArray( size, minValue, maxValue);
+
+int result = PositiveOfnumber(array);
+ShowArray(array);
+
+
+Console.Write( $"Количество четных элементов в массиве {result}");
